@@ -1,25 +1,25 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: Evan's blog
-tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+heroText: x·π
+tagline: 为开发者量身制作的技术博客和知识库管理平台。
 # actionText: 立刻进入 →
 # actionLink: /web/
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
-  - title: 前端
-    details: JavaScript、ES6、Vue框架等前端技术
-    link: /web/ # 可选
-    imgUrl: /img/web.png # 可选
-  - title: 页面
-    details: html(5)/css(3)，前端页面相关技术
-    link: /ui/
-    imgUrl: /img/ui.png
-  - title: 技术
-    details: 技术文档、教程、技巧、总结等文章
-    link: /technology/
-    imgUrl: /img/other.png
+  - title: 知识库
+    details: 分享内容包括:开发工具,环境配置,基本原理等基础知识,以及个人学习笔记,面试题库和业界主流的技术框架等文章.
+    link: /back_end/ # 可选
+    imgUrl: /img/basic.svg # 可选
+  - title: 项目实战
+    details: 分享主流开发框架的基本原理、使用场景、注意事项、整合方案以及实际项目中的最佳实践等.
+    link: /back_end/
+    imgUrl: /img/action.svg
+  - title: 平台架构 
+    details: 结合实际项目,分享当下热门软件架构设计的核心思想和实践经验,如常见的分层架构,事件驱动架构,微核架构,微服务架构以及云架构.
+    link: /pages/8a0e5f/
+    imgUrl: /img/architecture.svg
 
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表
 # postList: detailed
@@ -78,8 +78,8 @@ features: # 可选的
 
 ## :email: 联系
 
-- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>894072666</a>
-- **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
-- **GitHub**: <https://github.com/xugaoyi>
+- **WeChat or QQ**: <a href="tencent://message/?uin=619147075&Site=&Menu=yesUrl" class='qq'>619147075</a>
+- **Email**: <a href="mailto:619147075@qq.com">619147075@qq.com</a>
+- **GitHub**: <https://github.com/Ezuy-Lee/>
 
 </br>  -->

@@ -2,83 +2,133 @@
 module.exports = [
   { text: '首页', link: '/' },
   {
+    text: '后端',
+    link: '/back_end/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+    items: [
+      // 说明：以下所有link的值只是在相应md文件定义的永久链接（不是什么特殊生成的编码）。另外，注意结尾是有斜杠的
+      {
+        text: 'Java基础篇',
+        link: '/pages/6d04efbdfa185c88916a6edec2b5bec9/',
+      },
+      {
+        text: 'Java框架篇',
+        link: '/pages/6b89cf0a450c5012bb4bdc12eea6bf40/',
+      },
+      {
+        text: 'CVS版本控制',
+        link: '/pages/5f77f3ea97b75a5c9ffb0c5f1d7e3a72/',
+      },
+      {
+        text: '数据库和缓存',
+        link: '/pages/70b389/',
+        items: [
+          
+        ]
+      },
+      {
+        text: '设计模式和架构',
+        link: '/pages/8a0e5f/',
+      },
+      {
+        text: '容器化和中间件',
+        link: '/pages/78189d/',
+      },
+      {
+        text: 'Linux运维和测试',
+        link: '/pages/6d75fa6409b55e52a52a870a48f217fe/',
+      },
+      {
+        text: '大数据和云计算',
+        link: '/pages/1d539d/',
+      },
+      {
+        text: '工具和环境',
+        link: '/pages/41fde4/',
+      },
+    ],
+  },
+  {
     text: '前端',
     link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
       // 说明：以下所有link的值只是在相应md文件定义的永久链接（不是什么特殊生成的编码）。另外，注意结尾是有斜杠的
       {
-        text: '前端文章',
-        items: [
-          { text: 'JavaScript', link: '/pages/8143cc480faf9a11/' },
-          // { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
-        ],
+        text: '前端基础',
+        link: '/pages/of4wa5/',
       },
       {
-        text: '学习笔记',
-        items: [
-          { text: '《JavaScript教程》', link: '/note/javascript/' },
-          { text: '《JavaScript高级程序设计》', link: '/note/js/' },
-          { text: '《ES6 教程》', link: '/note/es6/' },
-          { text: '《Vue》', link: '/note/vue/' },
-          { text: '《React》', link: '/note/react/' },
-          {
-            text: '《TypeScript 从零实现 axios》',
-            link: '/note/typescript-axios/',
-          },
-          {
-            text: '《Git》',
-            link: '/note/git/',
-          },
-          {
-            text: 'TypeScript',
-            link: '/pages/51afd6/',
-          },
-          {
-            text: 'JS设计模式总结',
-            link: '/pages/4643cd/',
-          },
-        ],
+        text: '前端框架',
+        link: '/pages/9c53a1/',
+      },
+      {
+        text: '可视化',
+        link: '/pages/291a73/',
+      },
+      {
+        text: 'UI设计和产品',
+        link: '/pages/bbf7bd/',
+      },
+      {
+        text: 'Vue',
+        link: '/pages/0c01fa/',
       },
     ],
   },
   {
-    text: '页面',
-    link: '/ui/',
+    text: '工作',
+    link: '/work/',
     items: [
-      { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-      { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
+      { text: '个人', link: '/pages/236765/',},
+      { text: '公司', link: '/pages/be82e4/',},
+    
     ],
   },
   {
-    text: '技术',
-    link: '/technology/',
+    text: '工具箱',
+    link: '/tool/',
     items: [
-      { text: '技术文档', link: '/pages/9a7ee40fc232253e/' },
-      { text: 'GitHub技巧', link: '/pages/4c778760be26d8b3/' },
-      { text: 'Nodejs', link: '/pages/117708e0af7f0bd9/' },
-      { text: '博客搭建', link: '/pages/41f87d890d0a02af/' },
+      {
+        text: '在线工具',
+        link: '/pages/d9f31f/',
+      },
+      {
+        text: '后端工具',
+        link: '/pages/a9fdaa/',
+      },
+      {
+        text: '前端工具',
+        link: '/pages/2910b4/',
+      },
+    ],
+  },
+  {
+    text: '导航',
+    link: '/navigation/',
+    items: [
+      {
+        text: '后端学习',
+        link: '/pages/a0fb53/',
+      },
+      {
+        text: '前端学习',
+        link: '/pages/c0ac49/',
+      },
+      {
+        text: '软件资源',
+        link: '/pages/2e2565/',
+      },
+      
     ],
   },
   {
     text: '更多',
     link: '/more/',
     items: [
-      { text: '学习', link: '/pages/f2a556/' },
-      { text: '面试', link: '/pages/aea6571b7a8bae86/' },
-      { text: '心情杂货', link: '/pages/2d615df9a36a98ed/' },
-      { text: '实用技巧', link: '/pages/baaa02/' },
+      { text: '学习阅读', link: '/pages/284202/' },
+      { text: '面试经验', link: '/pages/96d03e/' },
+      { text: '心情杂谈', link: '/pages/34a617/' },
       { text: '友情链接', link: '/friends/' },
     ],
-  },
-  { text: '关于', link: '/about/' },
-  {
-    text: '收藏',
-    link: '/pages/beb6c0bd8a66cea6/',
-    // items: [
-    //   { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
-    //   { text: '资源', link: '/pages/eee83a9211a70f9d/' },
-    //   { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
-    // ],
   },
   {
     text: '索引',
@@ -89,4 +139,5 @@ module.exports = [
       { text: '归档', link: '/archives/' },
     ],
   },
+  { text: '关于', link: '/about/' },
 ]
