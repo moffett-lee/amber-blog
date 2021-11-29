@@ -52,9 +52,9 @@ module.exports = {
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
-    avatar: 'https://cdn.jsdelivr.net/gh/Ezuy-Lee/RainzeDrawingBed/media/blogger-avatar.png',
-    name: 'Amber.L',
-    slogan: '一个北漂95后！正在潜心研究前端和Java后端技术，一边学习一边积累经验',
+    avatar: 'https://cdn.jsdelivr.net/gh/Ezuy-Lee/RainzeDrawingBed/media/20211129amber-my.jpg',
+    // name: 'Amber.L',
+    // slogan: '一个北漂95后！正在潜心研究前端和Java后端技术，一边学习一边积累经验',
   },
   social: {
     // 社交图标，显示于博主信息栏和页脚栏
