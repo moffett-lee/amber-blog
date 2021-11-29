@@ -75,15 +75,6 @@ module.exports = [
     ],
   },
   {
-    text: '工作',
-    link: '/work/',
-    items: [
-      { text: '个人', link: '/pages/236765/',},
-      { text: '公司', link: '/pages/be82e4/',},
-    
-    ],
-  },
-  {
     text: '工具箱',
     link: '/tool/',
     items: [
