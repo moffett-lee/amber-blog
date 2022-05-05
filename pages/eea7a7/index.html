@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux文件管理指令 | 昆虫云</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-7828333725993554" async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="学历代表过去、能力代表现在、学习力代表未来。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.6b445320.css" as="style"><link rel="preload" href="/assets/js/app.aa05047d.js" as="script"><link rel="preload" href="/assets/js/2.5a29c738.js" as="script"><link rel="preload" href="/assets/js/68.4db1843e.js" as="script"><link rel="prefetch" href="/assets/js/10.a886ab4e.js"><link rel="prefetch" href="/assets/js/100.191781b7.js"><link rel="prefetch" href="/assets/js/101.bd2e7eed.js"><link rel="prefetch" href="/assets/js/102.f87a1ad3.js"><link rel="prefetch" href="/assets/js/103.f7e9df2f.js"><link rel="prefetch" href="/assets/js/104.a7c0f05c.js"><link rel="prefetch" href="/assets/js/105.c36cc95a.js"><link rel="prefetch" href="/assets/js/106.f0de7c8d.js"><link rel="prefetch" href="/assets/js/107.e0cf7635.js"><link rel="prefetch" href="/assets/js/108.717c296f.js"><link rel="prefetch" href="/assets/js/109.8abde942.js"><link rel="prefetch" href="/assets/js/11.3c8872c3.js"><link rel="prefetch" href="/assets/js/110.e191ba29.js"><link rel="prefetch" href="/assets/js/111.b849898f.js"><link rel="prefetch" href="/assets/js/112.ecc4e64a.js"><link rel="prefetch" href="/assets/js/113.14586482.js"><link rel="prefetch" href="/assets/js/114.b7f37b72.js"><link rel="prefetch" href="/assets/js/115.2bfa29a7.js"><link rel="prefetch" href="/assets/js/116.143de694.js"><link rel="prefetch" href="/assets/js/117.20ae8409.js"><link rel="prefetch" href="/assets/js/118.82c60557.js"><link rel="prefetch" href="/assets/js/119.4ce094be.js"><link rel="prefetch" href="/assets/js/12.a24da0af.js"><link rel="prefetch" href="/assets/js/120.f8259dfd.js"><link rel="prefetch" href="/assets/js/121.d5988cdc.js"><link rel="prefetch" href="/assets/js/122.87245196.js"><link rel="prefetch" href="/assets/js/123.7b269366.js"><link rel="prefetch" href="/assets/js/124.611f5869.js"><link rel="prefetch" href="/assets/js/125.99b0a644.js"><link rel="prefetch" href="/assets/js/126.c394f5eb.js"><link rel="prefetch" href="/assets/js/127.33a37d26.js"><link rel="prefetch" href="/assets/js/128.d9126b06.js"><link rel="prefetch" href="/assets/js/129.209c35ab.js"><link rel="prefetch" href="/assets/js/13.1d5a6d98.js"><link rel="prefetch" href="/assets/js/130.a151ed26.js"><link rel="prefetch" href="/assets/js/131.f7f44b52.js"><link rel="prefetch" href="/assets/js/132.c88623b4.js"><link rel="prefetch" href="/assets/js/133.3a6ee6f1.js"><link rel="prefetch" href="/assets/js/134.47e121ec.js"><link rel="prefetch" href="/assets/js/135.846830cd.js"><link rel="prefetch" href="/assets/js/136.9de2b060.js"><link rel="prefetch" href="/assets/js/137.d9c82e97.js"><link rel="prefetch" href="/assets/js/138.7cf442d4.js"><link rel="prefetch" href="/assets/js/139.b2d1d813.js"><link rel="prefetch" href="/assets/js/14.1eb7a864.js"><link rel="prefetch" href="/assets/js/140.d350d03f.js"><link rel="prefetch" href="/assets/js/141.b9f7523e.js"><link rel="prefetch" href="/assets/js/142.c5ac8947.js"><link rel="prefetch" href="/assets/js/143.27cf32a3.js"><link rel="prefetch" href="/assets/js/144.909d8221.js"><link rel="prefetch" href="/assets/js/145.9febf7d3.js"><link rel="prefetch" href="/assets/js/146.6e4b8c65.js"><link rel="prefetch" href="/assets/js/147.8858a470.js"><link rel="prefetch" href="/assets/js/148.749203a4.js"><link rel="prefetch" href="/assets/js/149.702a89e3.js"><link rel="prefetch" href="/assets/js/15.6a4b299e.js"><link rel="prefetch" href="/assets/js/150.d20a9cbc.js"><link rel="prefetch" href="/assets/js/151.309e94c7.js"><link rel="prefetch" href="/assets/js/152.71feb932.js"><link rel="prefetch" href="/assets/js/153.6a0234af.js"><link rel="prefetch" href="/assets/js/154.3287c3a5.js"><link rel="prefetch" href="/assets/js/155.c586e075.js"><link rel="prefetch" href="/assets/js/156.2c1c75a9.js"><link rel="prefetch" href="/assets/js/157.973b3a6d.js"><link rel="prefetch" href="/assets/js/158.6aa38274.js"><link rel="prefetch" href="/assets/js/159.dd3cab6d.js"><link rel="prefetch" href="/assets/js/16.00042a07.js"><link rel="prefetch" href="/assets/js/160.4879ac38.js"><link rel="prefetch" href="/assets/js/161.d7343381.js"><link rel="prefetch" href="/assets/js/162.1aff11f1.js"><link rel="prefetch" href="/assets/js/163.05338fc2.js"><link rel="prefetch" href="/assets/js/164.a3d14a6f.js"><link rel="prefetch" href="/assets/js/165.fb9b19a1.js"><link rel="prefetch" href="/assets/js/166.255b662d.js"><link rel="prefetch" href="/assets/js/167.69d3a6b9.js"><link rel="prefetch" href="/assets/js/168.8ca04538.js"><link rel="prefetch" href="/assets/js/169.436b0a04.js"><link rel="prefetch" href="/assets/js/17.366d3b2e.js"><link rel="prefetch" href="/assets/js/170.21ebe6e4.js"><link rel="prefetch" href="/assets/js/171.705b8f21.js"><link rel="prefetch" href="/assets/js/172.cab9f178.js"><link rel="prefetch" href="/assets/js/173.7c30a9b6.js"><link rel="prefetch" href="/assets/js/174.47252e46.js"><link rel="prefetch" href="/assets/js/175.c3374b09.js"><link rel="prefetch" href="/assets/js/176.774e945c.js"><link rel="prefetch" href="/assets/js/177.01c264eb.js"><link rel="prefetch" href="/assets/js/178.7db5ab47.js"><link rel="prefetch" href="/assets/js/179.9f97f3f2.js"><link rel="prefetch" href="/assets/js/18.32a43f69.js"><link rel="prefetch" href="/assets/js/180.3146ef8b.js"><link rel="prefetch" href="/assets/js/181.0fc52f8d.js"><link rel="prefetch" href="/assets/js/182.58a053fa.js"><link rel="prefetch" href="/assets/js/183.3f8af81a.js"><link rel="prefetch" href="/assets/js/184.72b6733b.js"><link rel="prefetch" href="/assets/js/185.79046871.js"><link rel="prefetch" href="/assets/js/186.384ef153.js"><link rel="prefetch" href="/assets/js/187.ece2f354.js"><link rel="prefetch" href="/assets/js/188.29dae2c8.js"><link rel="prefetch" href="/assets/js/189.5ce2bcd2.js"><link rel="prefetch" href="/assets/js/19.eb3f0123.js"><link rel="prefetch" href="/assets/js/190.f98d9483.js"><link rel="prefetch" href="/assets/js/191.e9c8799f.js"><link rel="prefetch" href="/assets/js/192.bb22be8c.js"><link rel="prefetch" href="/assets/js/193.7dc7c8b8.js"><link rel="prefetch" href="/assets/js/194.ee3cde6f.js"><link rel="prefetch" href="/assets/js/195.798ed03a.js"><link rel="prefetch" href="/assets/js/196.9cfac6cf.js"><link rel="prefetch" href="/assets/js/197.51fd33ae.js"><link rel="prefetch" href="/assets/js/198.e387274d.js"><link rel="prefetch" href="/assets/js/199.f90c903a.js"><link rel="prefetch" href="/assets/js/20.02a4b644.js"><link rel="prefetch" href="/assets/js/200.ff6811bc.js"><link rel="prefetch" href="/assets/js/201.3c846fee.js"><link rel="prefetch" href="/assets/js/202.4e1cbcfe.js"><link rel="prefetch" href="/assets/js/203.a59ba416.js"><link rel="prefetch" href="/assets/js/204.133a4b53.js"><link rel="prefetch" href="/assets/js/205.18e7374d.js"><link rel="prefetch" href="/assets/js/206.65c593e2.js"><link rel="prefetch" href="/assets/js/207.16a9eaf5.js"><link rel="prefetch" href="/assets/js/208.451df45c.js"><link rel="prefetch" href="/assets/js/209.97af4b48.js"><link rel="prefetch" href="/assets/js/21.45c11891.js"><link rel="prefetch" href="/assets/js/210.358ebf8a.js"><link rel="prefetch" href="/assets/js/211.7d152bb8.js"><link rel="prefetch" href="/assets/js/212.58b361ec.js"><link rel="prefetch" href="/assets/js/213.ab1e1354.js"><link rel="prefetch" href="/assets/js/214.33aaa6a1.js"><link rel="prefetch" href="/assets/js/215.21aa1069.js"><link rel="prefetch" href="/assets/js/216.e3d16e03.js"><link rel="prefetch" href="/assets/js/217.81282f6d.js"><link rel="prefetch" href="/assets/js/218.bb1b4909.js"><link rel="prefetch" href="/assets/js/219.753ed9db.js"><link rel="prefetch" href="/assets/js/22.66ca37af.js"><link rel="prefetch" href="/assets/js/220.8e36b201.js"><link rel="prefetch" href="/assets/js/221.644c5a7f.js"><link rel="prefetch" href="/assets/js/222.00e791c4.js"><link rel="prefetch" href="/assets/js/223.ff411537.js"><link rel="prefetch" href="/assets/js/224.f688e5b0.js"><link rel="prefetch" href="/assets/js/225.752ce1f9.js"><link rel="prefetch" href="/assets/js/226.6bd5a5a1.js"><link rel="prefetch" href="/assets/js/227.dbcba6cf.js"><link rel="prefetch" href="/assets/js/228.348367c3.js"><link rel="prefetch" href="/assets/js/229.c20ff355.js"><link rel="prefetch" href="/assets/js/23.88dd03dc.js"><link rel="prefetch" href="/assets/js/230.76e281f3.js"><link rel="prefetch" href="/assets/js/231.9c5c44a8.js"><link rel="prefetch" href="/assets/js/232.fcb560f6.js"><link rel="prefetch" href="/assets/js/233.fe4aeb11.js"><link rel="prefetch" href="/assets/js/234.60809d29.js"><link rel="prefetch" href="/assets/js/235.2cdc47e2.js"><link rel="prefetch" href="/assets/js/236.c0f90ff0.js"><link rel="prefetch" href="/assets/js/24.d078ef3a.js"><link rel="prefetch" href="/assets/js/25.09a12bab.js"><link rel="prefetch" href="/assets/js/26.e7bbab53.js"><link rel="prefetch" href="/assets/js/27.c0146014.js"><link rel="prefetch" href="/assets/js/28.5102051c.js"><link rel="prefetch" href="/assets/js/29.60af146d.js"><link rel="prefetch" href="/assets/js/3.dcc62d17.js"><link rel="prefetch" href="/assets/js/30.57497d29.js"><link rel="prefetch" href="/assets/js/31.fa5f6ebb.js"><link rel="prefetch" href="/assets/js/32.a2884504.js"><link rel="prefetch" href="/assets/js/33.0efefdbb.js"><link rel="prefetch" href="/assets/js/34.4d4a68d8.js"><link rel="prefetch" href="/assets/js/35.b5cde340.js"><link rel="prefetch" href="/assets/js/36.cffc0f0a.js"><link rel="prefetch" href="/assets/js/37.4f488624.js"><link rel="prefetch" href="/assets/js/38.9190b4c9.js"><link rel="prefetch" href="/assets/js/39.220fb79d.js"><link rel="prefetch" href="/assets/js/4.f3c1cb38.js"><link rel="prefetch" href="/assets/js/40.d8713624.js"><link rel="prefetch" href="/assets/js/41.a5ddb5d3.js"><link rel="prefetch" href="/assets/js/42.e1ee4f07.js"><link rel="prefetch" href="/assets/js/43.1a74dc5c.js"><link rel="prefetch" href="/assets/js/44.becb533a.js"><link rel="prefetch" href="/assets/js/45.48faee2b.js"><link rel="prefetch" href="/assets/js/46.9ca00db5.js"><link rel="prefetch" href="/assets/js/47.74e87e5a.js"><link rel="prefetch" href="/assets/js/48.fcf939e4.js"><link rel="prefetch" href="/assets/js/49.dd43ebae.js"><link rel="prefetch" href="/assets/js/5.d3c50a2e.js"><link rel="prefetch" href="/assets/js/50.5751f4a3.js"><link rel="prefetch" href="/assets/js/51.884eb3d7.js"><link rel="prefetch" href="/assets/js/52.735b8da9.js"><link rel="prefetch" href="/assets/js/53.759ea475.js"><link rel="prefetch" href="/assets/js/54.64237b84.js"><link rel="prefetch" href="/assets/js/55.de848f1b.js"><link rel="prefetch" href="/assets/js/56.d43ce237.js"><link rel="prefetch" href="/assets/js/57.1ddf2bf1.js"><link rel="prefetch" href="/assets/js/58.7310d4bc.js"><link rel="prefetch" href="/assets/js/59.98d0ab88.js"><link rel="prefetch" href="/assets/js/6.495246be.js"><link rel="prefetch" href="/assets/js/60.074b47a0.js"><link rel="prefetch" href="/assets/js/61.a3a4a871.js"><link rel="prefetch" href="/assets/js/62.d8ef4eef.js"><link rel="prefetch" href="/assets/js/63.5346d8be.js"><link rel="prefetch" href="/assets/js/64.467bb6fa.js"><link rel="prefetch" href="/assets/js/65.c9b66a4b.js"><link rel="prefetch" href="/assets/js/66.dc21c313.js"><link rel="prefetch" href="/assets/js/67.f2e6036e.js"><link rel="prefetch" href="/assets/js/69.15d354b1.js"><link rel="prefetch" href="/assets/js/7.381b489d.js"><link rel="prefetch" href="/assets/js/70.39130aa2.js"><link rel="prefetch" href="/assets/js/71.e1db8301.js"><link rel="prefetch" href="/assets/js/72.5541e6b4.js"><link rel="prefetch" href="/assets/js/73.21513f68.js"><link rel="prefetch" href="/assets/js/74.b63b9543.js"><link rel="prefetch" href="/assets/js/75.b3a29950.js"><link rel="prefetch" href="/assets/js/76.1c146887.js"><link rel="prefetch" href="/assets/js/77.c133fd12.js"><link rel="prefetch" href="/assets/js/78.e6ab408e.js"><link rel="prefetch" href="/assets/js/79.ccb4f8fd.js"><link rel="prefetch" href="/assets/js/8.a12dbd79.js"><link rel="prefetch" href="/assets/js/80.7a946c0a.js"><link rel="prefetch" href="/assets/js/81.1636a544.js"><link rel="prefetch" href="/assets/js/82.a9fe7ae2.js"><link rel="prefetch" href="/assets/js/83.d77c283a.js"><link rel="prefetch" href="/assets/js/84.3c3beb5a.js"><link rel="prefetch" href="/assets/js/85.fbccc2c7.js"><link rel="prefetch" href="/assets/js/86.f65781d2.js"><link rel="prefetch" href="/assets/js/87.0788d682.js"><link rel="prefetch" href="/assets/js/88.ba79aa79.js"><link rel="prefetch" href="/assets/js/89.3503aadf.js"><link rel="prefetch" href="/assets/js/9.094a6b75.js"><link rel="prefetch" href="/assets/js/90.8c243d61.js"><link rel="prefetch" href="/assets/js/91.31e9b37f.js"><link rel="prefetch" href="/assets/js/92.6a00d66d.js"><link rel="prefetch" href="/assets/js/93.b7a753c0.js"><link rel="prefetch" href="/assets/js/94.a803ffc7.js"><link rel="prefetch" href="/assets/js/95.a949e23c.js"><link rel="prefetch" href="/assets/js/96.5d02a5f9.js"><link rel="prefetch" href="/assets/js/97.5f3327b2.js"><link rel="prefetch" href="/assets/js/98.fa5d332d.js"><link rel="prefetch" href="/assets/js/99.f682489e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6b445320.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="昆虫云" class="logo"> <span class="site-name can-hide">昆虫云</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/back_end/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/6d04efbdfa185c88916a6edec2b5bec9/" class="nav-link">Java基础篇</a></li><li class="dropdown-item"><!----> <a href="/pages/6b89cf0a450c5012bb4bdc12eea6bf40/" class="nav-link">Java框架篇</a></li><li class="dropdown-item"><!----> <a href="/pages/5f77f3ea97b75a5c9ffb0c5f1d7e3a72/" class="nav-link">CVS版本控制</a></li><li class="dropdown-item"><!----> <a href="/pages/70b389/" class="nav-link">数据库和缓存</a></li><li class="dropdown-item"><!----> <a href="/pages/8a0e5f/" class="nav-link">设计模式和架构</a></li><li class="dropdown-item"><!----> <a href="/pages/78189d/" class="nav-link">容器化和中间件</a></li><li class="dropdown-item"><!----> <a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="nav-link">Linux运维和测试</a></li><li class="dropdown-item"><!----> <a href="/pages/1d539d/" class="nav-link">大数据和云计算</a></li><li class="dropdown-item"><!----> <a href="/pages/41fde4/" class="nav-link">工具和环境</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/of4wa5/" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/pages/9c53a1/" class="nav-link">前端框架</a></li><li class="dropdown-item"><!----> <a href="/pages/291a73/" class="nav-link">可视化</a></li><li class="dropdown-item"><!----> <a href="/pages/bbf7bd/" class="nav-link">UI设计和产品</a></li><li class="dropdown-item"><!----> <a href="/pages/0c01fa/" class="nav-link">Vue</a></li></ul></div></div> <a href="https://github.com/Ezuy-Lee/amber-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img> <div class="blogger-info"><h3>Red.M</h3> <span>一个喜欢摄影和骑行的程序员</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/back_end/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/6d04efbdfa185c88916a6edec2b5bec9/" class="nav-link">Java基础篇</a></li><li class="dropdown-item"><!----> <a href="/pages/6b89cf0a450c5012bb4bdc12eea6bf40/" class="nav-link">Java框架篇</a></li><li class="dropdown-item"><!----> <a href="/pages/5f77f3ea97b75a5c9ffb0c5f1d7e3a72/" class="nav-link">CVS版本控制</a></li><li class="dropdown-item"><!----> <a href="/pages/70b389/" class="nav-link">数据库和缓存</a></li><li class="dropdown-item"><!----> <a href="/pages/8a0e5f/" class="nav-link">设计模式和架构</a></li><li class="dropdown-item"><!----> <a href="/pages/78189d/" class="nav-link">容器化和中间件</a></li><li class="dropdown-item"><!----> <a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="nav-link">Linux运维和测试</a></li><li class="dropdown-item"><!----> <a href="/pages/1d539d/" class="nav-link">大数据和云计算</a></li><li class="dropdown-item"><!----> <a href="/pages/41fde4/" class="nav-link">工具和环境</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/of4wa5/" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/pages/9c53a1/" class="nav-link">前端框架</a></li><li class="dropdown-item"><!----> <a href="/pages/291a73/" class="nav-link">可视化</a></li><li class="dropdown-item"><!----> <a href="/pages/bbf7bd/" class="nav-link">UI设计和产品</a></li><li class="dropdown-item"><!----> <a href="/pages/0c01fa/" class="nav-link">Vue</a></li></ul></div></div> <a href="https://github.com/Ezuy-Lee/amber-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java基础篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java框架篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CVS版本控制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据库和缓存</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式和架构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>容器化和中间件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux运维和测试</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="sidebar-link">《Linux运维和测试》</a></li><li><a href="/pages/eea7a7/" aria-current="page" class="active sidebar-link">Linux文件管理指令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/eea7a7/#_1-基本命令" class="sidebar-link">1 基本命令</a></li><li class="sidebar-sub-header level2"><a href="/pages/eea7a7/#_2-vi与vim编辑器" class="sidebar-link">2 vi与vim编辑器</a></li></ul></li><li><a href="/pages/17a3aa/" class="sidebar-link">Kubernetes Pod操作篇</a></li><li><a href="/pages/72dcb3/" class="sidebar-link">Kubernetes 副本机制篇</a></li><li><a href="/pages/aa41a0/" class="sidebar-link">Kubernetes服务篇</a></li><li><a href="/pages/32963d/" class="sidebar-link">Kubernetes入门篇</a></li><li><a href="/pages/d4fb89/" class="sidebar-link">Prometheus监控告警浅析</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>大数据和云计算</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具和环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-1baff76c><div class="articleInfo" data-v-1baff76c><ul class="breadcrumbs" data-v-1baff76c><li data-v-1baff76c><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-1baff76c></a></li> <li data-v-1baff76c><a href="/back_end/#后端" data-v-1baff76c>后端</a></li><li data-v-1baff76c><a href="/back_end/#Linux运维和测试" data-v-1baff76c>Linux运维和测试</a></li></ul> <div class="info" data-v-1baff76c><div title="作者" class="author iconfont icon-touxiang" data-v-1baff76c><a href="https://github.com/Ezuy-Lee" target="_blank" title="作者" class="beLink" data-v-1baff76c>Amber.L</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-1baff76c><a href="javascript:;" data-v-1baff76c>2021-06-18</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">Linux文件管理指令<!----></h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><h2 id="_1-基本命令"><a href="#_1-基本命令" class="header-anchor">#</a> 1 基本命令</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>1 创建文件：
+
+# 在Linux系统中创建test.txt
+touch test.txt
+
+2 创建文件夹
+
+# 创建一个文件夹
+mkdir /root/python
+    参数：
+        -p : 递归创建目录
+             mkdir -p /aa/bb/cc
+        -v : 显示创建的过程
+             mkdir -p -v /aaa/bbb/ccc
+
+3 查看文件夹下面的文件
+
+# 查看文件需要跟对应的路径
+# Linux中最顶级目录是根目录:/
+
+# 根目录(最顶级目录):/
+# 根目录下有哪些内容：
+ls /
+
+# 查看文件的详细信息
+ls -l   等价于 ll
+
+4 查看当前所在路径
+
+# pwd命令查看的所有路径都是从根目录(/)开始的
+pwd
+
+5 切换目录
+
+cd
+# 以绝对路径的方式切换路径(从根目录开始)
+例：cd /etc
+   pwd
+   ==&gt;/etc
+   
+# 以相对路径方式切换目录
+# .和..
+
+# .  : 在任何目录下都代表当前目录
+# .. : 在任何目录下都代表上一级目录(顶级目录除外)
+
+# cd命令切换的默认目录为家目录(~ : 在Linux当中指的是当前用户的家目录)
+[root@localhost ~]#
+[用户名@主机名 当前所在的目录]
+
+6 修改主机名(重新进入系统才会生效)
+
+hostnamectl set-hostname python(新主机名)
+
+7 退出登录
+
+exit
+
+8 移动文件
+
+mv    # mv 原路径 移动后的路径
+
+9 复制文件
+
+cp    # cp 参数 原路径 移动后的路径(如果在该文件当前路径，原路径可忽略./直接写文件名)
+      
+      参数：
+      -r : 递归复制(常用于复制目录)
+
+10 删除文件
+
+rm    # 有二次确认
+
+      参数:
+      -r : 递归删除文件(删除目录)
+      rm -r 目录
+      -f : 免去删除提示(二次确认)
+      rm -r -f 目录
+      
+11 打印命令
+
+echo &quot;打印的内容&quot;
+
+12 打印出当前系统中所有的变量
+
+printenv
+
+13 重定向符号
+
+&gt; 和 &gt;&gt;
+
+&gt;  : 覆盖重定向(先删除文件原内容，后写入新内容到文件)
+    echo &quot;Hello China&quot; &gt; test.txt
+
+&gt;&gt; : 追加重定向(原来的内容不动，后写的新内容从底部插入)
+    echo &quot;Hello World&quot; &gt;&gt; test.txt
+
+14 查看文件内容
+
+cat test.txt
+
+15 隐藏文件
+
+# 文件名以.开头的就是隐藏文件
+
+      参数：
+      -a : 查看隐藏文件
+      [root@localhost ~]# ls -a
+      .  ..  .bash_logout  .bash_profile
+      
+      -l : 查看文件详细信息
+         -rw-r--r--. 1 root root 24 6月  11 16:26 test.txt
+         -rw-r--r--    : 文件权限
+         (第一个)root   : 所属用户
+         (第二个)root   : 所属组
+         24            : 文件大小
+         6月 11 16：26  : 创建时间
+         test.txt      : 文件名称
+       -h : 以方便查看方式查看文件大小(必须配合-l参数)
+       
+16 重启系统
+
+reboot : 重启系统
+
+17 关机
+
+shutdown -h now : 立即关机
+shutdown -h 2   : 两秒后关机
+
+18 alias      # 别名
+
+alias ll='\ls -l -a --color=auto'
+
+19 从头查看文件内容
+
+head    # 从头查看文件内容
+        参数
+        -n : 设置显示头几行
+    
+20 从尾查看文件内容 
+
+tail    # 从尾查看文件内容
+        参数
+        -n : 设置显示末尾几行
+        -f : 实时查看文件内容
+    
+21 查看目录树 
+
+tree    # 查看目录树(需要先安装tree命令，执行yum install tree -y)
+        参数
+        -a 目录   : 显示所有文件，包括隐藏文件
+        -d 目录   : 只显示子目录
+        -L 1 目录 : -L 遍历目录的最大层数，-L后应该是大于0的正整数
+        -F 目录   : -F 在条目后加上文件类型的指示符号，例如会在显示出的目录后面加上左斜杠/
+    
+22 过滤
+
+grep    # 针对文件内容进行过滤
+
+23 修改文件权限
+
+chmod   # 修改文件权限
+    chmod 权限 文件路径
+
+24 修改所属用户及用户组
+
+chown   # 修改所属用户及用户组
+    chown 用户.用户组 文件路径
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br></div></div><h2 id="_2-vi与vim编辑器"><a href="#_2-vi与vim编辑器" class="header-anchor">#</a> 2 vi与vim编辑器</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># 三大操作模式
+    1 命令行模式 : 在编辑模式下按下ESC键返回命令行模式
+    2 编辑/插入模式 : 输入a、i、o之一
+    3 扩展/末行模式 : 输入冒号:
+    
+# 命令行模式(进入vim的默认/初始模式)
+
+1 查找
+    
+    在命令行模式下按下键盘上的/，然后输入要查询的内容，搜索到内容之后，光标自动定位并设置颜色
+    
+2 复制
+    
+    2.1 连续按y键两次，复制当前光标所在行，p键粘贴(小p粘贴到下一行，大P粘贴到上一行)
+    2.2 先按y键两次，然后按一个数字num，p键粘贴(小p粘贴到下num行，大P粘贴到上num行)
+    
+3 删除
+    
+    3.1 进入插入模式，像修改文本一样去删除文件
+    3.2 连续按d键两次，删除一行内容
+    3.3 先按一个数字num，再按d键两次,向下删除num行
+    3.4 x : 删除光标包含的内容
+
+4 撤回
+    
+    u : 返回上一步，只在同一次编辑中有效
+    U : 还原上一步
+
+5 移动
+    $ : 光标移动到当前行的行尾
+    0 : 光标移动到当前行的行首
+    G : 光标移动到这个文件的最后一行
+    gg: 光标移动到这个文件的第一行
+    H : 光标移动到第一行的行首
+    M : 光标移动到中间行的行首
+    L : 光标移动到最后一行的行首
+
+====================================================================
+
+# 编辑/插入模式
+
+1 进入编辑/插入模式
+
+&quot;i&quot;                在光标所在位置插入字符
+&quot;I&quot;                在光标所在行的行首插入字符
+&quot;o&quot;                在光标所在行的下一行新行插入字符
+&quot;O&quot;                在光标所在行的上以行新行插入
+&quot;s&quot;                删除光标所在字符并插入字符
+&quot;S&quot;                删除光标所在行并插入字符
+&quot;a&quot;                光标所在字符的下一个字符插入
+&quot;A&quot;                光标所在行的行尾插入字符
+
+2 修改/删除
+
+像正常修改文本一样
+
+====================================================================
+
+# 末行/扩展模式
+
+1 保存退出
+
+    :w   保存
+    :q   退出
+    :wq  保存并退出
+    :w!  强制保存
+    :q!  不保存并退出
+    :wq! 强制保存退出
+    :x   保存并退出
+    
+2 查找替换
+    :n   定位到某一行
+    :开始位置，结束位置 s/被替换的内容/替换的内容/g   (g表示全局)
+    (遇到路径需要\转义)
+    :2,10 s/Hello/nihao   ---&gt; 从第二行开始，到第十行结束
+    :2，$ s/Hello/nihao   ---&gt; 从第二行开始，到最后($表示全文)
+    :% s/Hello/nihao      ---&gt; 全文替换
+
+3 临时设置
+    :set nu     设置行号
+    :set ic     不区分大小写
+    :set ai     自动缩进(有时候没有效果)
+    :set nonu   取消设置行号
+    
+====================================================================
+
+# 同时编辑多个文件
+
+1 同时编辑多个文件
+    vim -o : 水平分割
+    vim -O : 垂直分割
+
+# 文件内容对比
+
+1 同时对比编辑两个不同文件
+    vimdiff 文件1 文件2
+    Ctrl + ww : 切换屏幕
+    注意：有几个文件则保存几次
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br></div></div></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Ezuy-Lee/amber-blog/edit/master/docs/01.后端/07.Linux运维和测试/01.Linux文件管理指令.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/28, 20:39:47</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">《Linux运维和测试》</div></a> <a href="/pages/17a3aa/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">Kubernetes Pod操作篇</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="prev">《Linux运维和测试》</a></span> <span class="next"><a href="/pages/17a3aa/">Kubernetes Pod操作篇</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/17a3aa/"><div>
+            Kubernetes Pod操作篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/72dcb3/"><div>
+            Kubernetes 副本机制篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/aa41a0/"><div>
+            Kubernetes服务篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:619147075@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/Ezuy-Lee/" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/playlist?id=966099149" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2020-2022
+    <span>Amber.L | <a href="https://github.com/Ezuy-Lee/Rainze-Blog/blob/main/LICENSE" target="_blank">MIT License</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><span class="close-but">×</span> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.aa05047d.js" defer></script><script src="/assets/js/2.5a29c738.js" defer></script><script src="/assets/js/68.4db1843e.js" defer></script>
+  </body>
+</html>

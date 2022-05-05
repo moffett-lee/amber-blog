@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MySql Binlog初识 | 昆虫云</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-7828333725993554" async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="学历代表过去、能力代表现在、学习力代表未来。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.6b445320.css" as="style"><link rel="preload" href="/assets/js/app.aa05047d.js" as="script"><link rel="preload" href="/assets/js/2.5a29c738.js" as="script"><link rel="preload" href="/assets/js/46.9ca00db5.js" as="script"><link rel="prefetch" href="/assets/js/10.a886ab4e.js"><link rel="prefetch" href="/assets/js/100.191781b7.js"><link rel="prefetch" href="/assets/js/101.bd2e7eed.js"><link rel="prefetch" href="/assets/js/102.f87a1ad3.js"><link rel="prefetch" href="/assets/js/103.f7e9df2f.js"><link rel="prefetch" href="/assets/js/104.a7c0f05c.js"><link rel="prefetch" href="/assets/js/105.c36cc95a.js"><link rel="prefetch" href="/assets/js/106.f0de7c8d.js"><link rel="prefetch" href="/assets/js/107.e0cf7635.js"><link rel="prefetch" href="/assets/js/108.717c296f.js"><link rel="prefetch" href="/assets/js/109.8abde942.js"><link rel="prefetch" href="/assets/js/11.3c8872c3.js"><link rel="prefetch" href="/assets/js/110.e191ba29.js"><link rel="prefetch" href="/assets/js/111.b849898f.js"><link rel="prefetch" href="/assets/js/112.ecc4e64a.js"><link rel="prefetch" href="/assets/js/113.14586482.js"><link rel="prefetch" href="/assets/js/114.b7f37b72.js"><link rel="prefetch" href="/assets/js/115.2bfa29a7.js"><link rel="prefetch" href="/assets/js/116.143de694.js"><link rel="prefetch" href="/assets/js/117.20ae8409.js"><link rel="prefetch" href="/assets/js/118.82c60557.js"><link rel="prefetch" href="/assets/js/119.4ce094be.js"><link rel="prefetch" href="/assets/js/12.a24da0af.js"><link rel="prefetch" href="/assets/js/120.f8259dfd.js"><link rel="prefetch" href="/assets/js/121.d5988cdc.js"><link rel="prefetch" href="/assets/js/122.87245196.js"><link rel="prefetch" href="/assets/js/123.7b269366.js"><link rel="prefetch" href="/assets/js/124.611f5869.js"><link rel="prefetch" href="/assets/js/125.99b0a644.js"><link rel="prefetch" href="/assets/js/126.c394f5eb.js"><link rel="prefetch" href="/assets/js/127.33a37d26.js"><link rel="prefetch" href="/assets/js/128.d9126b06.js"><link rel="prefetch" href="/assets/js/129.209c35ab.js"><link rel="prefetch" href="/assets/js/13.1d5a6d98.js"><link rel="prefetch" href="/assets/js/130.a151ed26.js"><link rel="prefetch" href="/assets/js/131.f7f44b52.js"><link rel="prefetch" href="/assets/js/132.c88623b4.js"><link rel="prefetch" href="/assets/js/133.3a6ee6f1.js"><link rel="prefetch" href="/assets/js/134.47e121ec.js"><link rel="prefetch" href="/assets/js/135.846830cd.js"><link rel="prefetch" href="/assets/js/136.9de2b060.js"><link rel="prefetch" href="/assets/js/137.d9c82e97.js"><link rel="prefetch" href="/assets/js/138.7cf442d4.js"><link rel="prefetch" href="/assets/js/139.b2d1d813.js"><link rel="prefetch" href="/assets/js/14.1eb7a864.js"><link rel="prefetch" href="/assets/js/140.d350d03f.js"><link rel="prefetch" href="/assets/js/141.b9f7523e.js"><link rel="prefetch" href="/assets/js/142.c5ac8947.js"><link rel="prefetch" href="/assets/js/143.27cf32a3.js"><link rel="prefetch" href="/assets/js/144.909d8221.js"><link rel="prefetch" href="/assets/js/145.9febf7d3.js"><link rel="prefetch" href="/assets/js/146.6e4b8c65.js"><link rel="prefetch" href="/assets/js/147.8858a470.js"><link rel="prefetch" href="/assets/js/148.749203a4.js"><link rel="prefetch" href="/assets/js/149.702a89e3.js"><link rel="prefetch" href="/assets/js/15.6a4b299e.js"><link rel="prefetch" href="/assets/js/150.d20a9cbc.js"><link rel="prefetch" href="/assets/js/151.309e94c7.js"><link rel="prefetch" href="/assets/js/152.71feb932.js"><link rel="prefetch" href="/assets/js/153.6a0234af.js"><link rel="prefetch" href="/assets/js/154.3287c3a5.js"><link rel="prefetch" href="/assets/js/155.c586e075.js"><link rel="prefetch" href="/assets/js/156.2c1c75a9.js"><link rel="prefetch" href="/assets/js/157.973b3a6d.js"><link rel="prefetch" href="/assets/js/158.6aa38274.js"><link rel="prefetch" href="/assets/js/159.dd3cab6d.js"><link rel="prefetch" href="/assets/js/16.00042a07.js"><link rel="prefetch" href="/assets/js/160.4879ac38.js"><link rel="prefetch" href="/assets/js/161.d7343381.js"><link rel="prefetch" href="/assets/js/162.1aff11f1.js"><link rel="prefetch" href="/assets/js/163.05338fc2.js"><link rel="prefetch" href="/assets/js/164.a3d14a6f.js"><link rel="prefetch" href="/assets/js/165.fb9b19a1.js"><link rel="prefetch" href="/assets/js/166.255b662d.js"><link rel="prefetch" href="/assets/js/167.69d3a6b9.js"><link rel="prefetch" href="/assets/js/168.8ca04538.js"><link rel="prefetch" href="/assets/js/169.436b0a04.js"><link rel="prefetch" href="/assets/js/17.366d3b2e.js"><link rel="prefetch" href="/assets/js/170.21ebe6e4.js"><link rel="prefetch" href="/assets/js/171.705b8f21.js"><link rel="prefetch" href="/assets/js/172.cab9f178.js"><link rel="prefetch" href="/assets/js/173.7c30a9b6.js"><link rel="prefetch" href="/assets/js/174.47252e46.js"><link rel="prefetch" href="/assets/js/175.c3374b09.js"><link rel="prefetch" href="/assets/js/176.774e945c.js"><link rel="prefetch" href="/assets/js/177.01c264eb.js"><link rel="prefetch" href="/assets/js/178.7db5ab47.js"><link rel="prefetch" href="/assets/js/179.9f97f3f2.js"><link rel="prefetch" href="/assets/js/18.32a43f69.js"><link rel="prefetch" href="/assets/js/180.3146ef8b.js"><link rel="prefetch" href="/assets/js/181.0fc52f8d.js"><link rel="prefetch" href="/assets/js/182.58a053fa.js"><link rel="prefetch" href="/assets/js/183.3f8af81a.js"><link rel="prefetch" href="/assets/js/184.72b6733b.js"><link rel="prefetch" href="/assets/js/185.79046871.js"><link rel="prefetch" href="/assets/js/186.384ef153.js"><link rel="prefetch" href="/assets/js/187.ece2f354.js"><link rel="prefetch" href="/assets/js/188.29dae2c8.js"><link rel="prefetch" href="/assets/js/189.5ce2bcd2.js"><link rel="prefetch" href="/assets/js/19.eb3f0123.js"><link rel="prefetch" href="/assets/js/190.f98d9483.js"><link rel="prefetch" href="/assets/js/191.e9c8799f.js"><link rel="prefetch" href="/assets/js/192.bb22be8c.js"><link rel="prefetch" href="/assets/js/193.7dc7c8b8.js"><link rel="prefetch" href="/assets/js/194.ee3cde6f.js"><link rel="prefetch" href="/assets/js/195.798ed03a.js"><link rel="prefetch" href="/assets/js/196.9cfac6cf.js"><link rel="prefetch" href="/assets/js/197.51fd33ae.js"><link rel="prefetch" href="/assets/js/198.e387274d.js"><link rel="prefetch" href="/assets/js/199.f90c903a.js"><link rel="prefetch" href="/assets/js/20.02a4b644.js"><link rel="prefetch" href="/assets/js/200.ff6811bc.js"><link rel="prefetch" href="/assets/js/201.3c846fee.js"><link rel="prefetch" href="/assets/js/202.4e1cbcfe.js"><link rel="prefetch" href="/assets/js/203.a59ba416.js"><link rel="prefetch" href="/assets/js/204.133a4b53.js"><link rel="prefetch" href="/assets/js/205.18e7374d.js"><link rel="prefetch" href="/assets/js/206.65c593e2.js"><link rel="prefetch" href="/assets/js/207.16a9eaf5.js"><link rel="prefetch" href="/assets/js/208.451df45c.js"><link rel="prefetch" href="/assets/js/209.97af4b48.js"><link rel="prefetch" href="/assets/js/21.45c11891.js"><link rel="prefetch" href="/assets/js/210.358ebf8a.js"><link rel="prefetch" href="/assets/js/211.7d152bb8.js"><link rel="prefetch" href="/assets/js/212.58b361ec.js"><link rel="prefetch" href="/assets/js/213.ab1e1354.js"><link rel="prefetch" href="/assets/js/214.33aaa6a1.js"><link rel="prefetch" href="/assets/js/215.21aa1069.js"><link rel="prefetch" href="/assets/js/216.e3d16e03.js"><link rel="prefetch" href="/assets/js/217.81282f6d.js"><link rel="prefetch" href="/assets/js/218.bb1b4909.js"><link rel="prefetch" href="/assets/js/219.753ed9db.js"><link rel="prefetch" href="/assets/js/22.66ca37af.js"><link rel="prefetch" href="/assets/js/220.8e36b201.js"><link rel="prefetch" href="/assets/js/221.644c5a7f.js"><link rel="prefetch" href="/assets/js/222.00e791c4.js"><link rel="prefetch" href="/assets/js/223.ff411537.js"><link rel="prefetch" href="/assets/js/224.f688e5b0.js"><link rel="prefetch" href="/assets/js/225.752ce1f9.js"><link rel="prefetch" href="/assets/js/226.6bd5a5a1.js"><link rel="prefetch" href="/assets/js/227.dbcba6cf.js"><link rel="prefetch" href="/assets/js/228.348367c3.js"><link rel="prefetch" href="/assets/js/229.c20ff355.js"><link rel="prefetch" href="/assets/js/23.88dd03dc.js"><link rel="prefetch" href="/assets/js/230.76e281f3.js"><link rel="prefetch" href="/assets/js/231.9c5c44a8.js"><link rel="prefetch" href="/assets/js/232.fcb560f6.js"><link rel="prefetch" href="/assets/js/233.fe4aeb11.js"><link rel="prefetch" href="/assets/js/234.60809d29.js"><link rel="prefetch" href="/assets/js/235.2cdc47e2.js"><link rel="prefetch" href="/assets/js/236.c0f90ff0.js"><link rel="prefetch" href="/assets/js/24.d078ef3a.js"><link rel="prefetch" href="/assets/js/25.09a12bab.js"><link rel="prefetch" href="/assets/js/26.e7bbab53.js"><link rel="prefetch" href="/assets/js/27.c0146014.js"><link rel="prefetch" href="/assets/js/28.5102051c.js"><link rel="prefetch" href="/assets/js/29.60af146d.js"><link rel="prefetch" href="/assets/js/3.dcc62d17.js"><link rel="prefetch" href="/assets/js/30.57497d29.js"><link rel="prefetch" href="/assets/js/31.fa5f6ebb.js"><link rel="prefetch" href="/assets/js/32.a2884504.js"><link rel="prefetch" href="/assets/js/33.0efefdbb.js"><link rel="prefetch" href="/assets/js/34.4d4a68d8.js"><link rel="prefetch" href="/assets/js/35.b5cde340.js"><link rel="prefetch" href="/assets/js/36.cffc0f0a.js"><link rel="prefetch" href="/assets/js/37.4f488624.js"><link rel="prefetch" href="/assets/js/38.9190b4c9.js"><link rel="prefetch" href="/assets/js/39.220fb79d.js"><link rel="prefetch" href="/assets/js/4.f3c1cb38.js"><link rel="prefetch" href="/assets/js/40.d8713624.js"><link rel="prefetch" href="/assets/js/41.a5ddb5d3.js"><link rel="prefetch" href="/assets/js/42.e1ee4f07.js"><link rel="prefetch" href="/assets/js/43.1a74dc5c.js"><link rel="prefetch" href="/assets/js/44.becb533a.js"><link rel="prefetch" href="/assets/js/45.48faee2b.js"><link rel="prefetch" href="/assets/js/47.74e87e5a.js"><link rel="prefetch" href="/assets/js/48.fcf939e4.js"><link rel="prefetch" href="/assets/js/49.dd43ebae.js"><link rel="prefetch" href="/assets/js/5.d3c50a2e.js"><link rel="prefetch" href="/assets/js/50.5751f4a3.js"><link rel="prefetch" href="/assets/js/51.884eb3d7.js"><link rel="prefetch" href="/assets/js/52.735b8da9.js"><link rel="prefetch" href="/assets/js/53.759ea475.js"><link rel="prefetch" href="/assets/js/54.64237b84.js"><link rel="prefetch" href="/assets/js/55.de848f1b.js"><link rel="prefetch" href="/assets/js/56.d43ce237.js"><link rel="prefetch" href="/assets/js/57.1ddf2bf1.js"><link rel="prefetch" href="/assets/js/58.7310d4bc.js"><link rel="prefetch" href="/assets/js/59.98d0ab88.js"><link rel="prefetch" href="/assets/js/6.495246be.js"><link rel="prefetch" href="/assets/js/60.074b47a0.js"><link rel="prefetch" href="/assets/js/61.a3a4a871.js"><link rel="prefetch" href="/assets/js/62.d8ef4eef.js"><link rel="prefetch" href="/assets/js/63.5346d8be.js"><link rel="prefetch" href="/assets/js/64.467bb6fa.js"><link rel="prefetch" href="/assets/js/65.c9b66a4b.js"><link rel="prefetch" href="/assets/js/66.dc21c313.js"><link rel="prefetch" href="/assets/js/67.f2e6036e.js"><link rel="prefetch" href="/assets/js/68.4db1843e.js"><link rel="prefetch" href="/assets/js/69.15d354b1.js"><link rel="prefetch" href="/assets/js/7.381b489d.js"><link rel="prefetch" href="/assets/js/70.39130aa2.js"><link rel="prefetch" href="/assets/js/71.e1db8301.js"><link rel="prefetch" href="/assets/js/72.5541e6b4.js"><link rel="prefetch" href="/assets/js/73.21513f68.js"><link rel="prefetch" href="/assets/js/74.b63b9543.js"><link rel="prefetch" href="/assets/js/75.b3a29950.js"><link rel="prefetch" href="/assets/js/76.1c146887.js"><link rel="prefetch" href="/assets/js/77.c133fd12.js"><link rel="prefetch" href="/assets/js/78.e6ab408e.js"><link rel="prefetch" href="/assets/js/79.ccb4f8fd.js"><link rel="prefetch" href="/assets/js/8.a12dbd79.js"><link rel="prefetch" href="/assets/js/80.7a946c0a.js"><link rel="prefetch" href="/assets/js/81.1636a544.js"><link rel="prefetch" href="/assets/js/82.a9fe7ae2.js"><link rel="prefetch" href="/assets/js/83.d77c283a.js"><link rel="prefetch" href="/assets/js/84.3c3beb5a.js"><link rel="prefetch" href="/assets/js/85.fbccc2c7.js"><link rel="prefetch" href="/assets/js/86.f65781d2.js"><link rel="prefetch" href="/assets/js/87.0788d682.js"><link rel="prefetch" href="/assets/js/88.ba79aa79.js"><link rel="prefetch" href="/assets/js/89.3503aadf.js"><link rel="prefetch" href="/assets/js/9.094a6b75.js"><link rel="prefetch" href="/assets/js/90.8c243d61.js"><link rel="prefetch" href="/assets/js/91.31e9b37f.js"><link rel="prefetch" href="/assets/js/92.6a00d66d.js"><link rel="prefetch" href="/assets/js/93.b7a753c0.js"><link rel="prefetch" href="/assets/js/94.a803ffc7.js"><link rel="prefetch" href="/assets/js/95.a949e23c.js"><link rel="prefetch" href="/assets/js/96.5d02a5f9.js"><link rel="prefetch" href="/assets/js/97.5f3327b2.js"><link rel="prefetch" href="/assets/js/98.fa5d332d.js"><link rel="prefetch" href="/assets/js/99.f682489e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6b445320.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="昆虫云" class="logo"> <span class="site-name can-hide">昆虫云</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/back_end/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/6d04efbdfa185c88916a6edec2b5bec9/" class="nav-link">Java基础篇</a></li><li class="dropdown-item"><!----> <a href="/pages/6b89cf0a450c5012bb4bdc12eea6bf40/" class="nav-link">Java框架篇</a></li><li class="dropdown-item"><!----> <a href="/pages/5f77f3ea97b75a5c9ffb0c5f1d7e3a72/" class="nav-link">CVS版本控制</a></li><li class="dropdown-item"><!----> <a href="/pages/70b389/" class="nav-link">数据库和缓存</a></li><li class="dropdown-item"><!----> <a href="/pages/8a0e5f/" class="nav-link">设计模式和架构</a></li><li class="dropdown-item"><!----> <a href="/pages/78189d/" class="nav-link">容器化和中间件</a></li><li class="dropdown-item"><!----> <a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="nav-link">Linux运维和测试</a></li><li class="dropdown-item"><!----> <a href="/pages/1d539d/" class="nav-link">大数据和云计算</a></li><li class="dropdown-item"><!----> <a href="/pages/41fde4/" class="nav-link">工具和环境</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/of4wa5/" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/pages/9c53a1/" class="nav-link">前端框架</a></li><li class="dropdown-item"><!----> <a href="/pages/291a73/" class="nav-link">可视化</a></li><li class="dropdown-item"><!----> <a href="/pages/bbf7bd/" class="nav-link">UI设计和产品</a></li><li class="dropdown-item"><!----> <a href="/pages/0c01fa/" class="nav-link">Vue</a></li></ul></div></div> <a href="https://github.com/Ezuy-Lee/amber-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img> <div class="blogger-info"><h3>Red.M</h3> <span>一个喜欢摄影和骑行的程序员</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/back_end/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/6d04efbdfa185c88916a6edec2b5bec9/" class="nav-link">Java基础篇</a></li><li class="dropdown-item"><!----> <a href="/pages/6b89cf0a450c5012bb4bdc12eea6bf40/" class="nav-link">Java框架篇</a></li><li class="dropdown-item"><!----> <a href="/pages/5f77f3ea97b75a5c9ffb0c5f1d7e3a72/" class="nav-link">CVS版本控制</a></li><li class="dropdown-item"><!----> <a href="/pages/70b389/" class="nav-link">数据库和缓存</a></li><li class="dropdown-item"><!----> <a href="/pages/8a0e5f/" class="nav-link">设计模式和架构</a></li><li class="dropdown-item"><!----> <a href="/pages/78189d/" class="nav-link">容器化和中间件</a></li><li class="dropdown-item"><!----> <a href="/pages/6d75fa6409b55e52a52a870a48f217fe/" class="nav-link">Linux运维和测试</a></li><li class="dropdown-item"><!----> <a href="/pages/1d539d/" class="nav-link">大数据和云计算</a></li><li class="dropdown-item"><!----> <a href="/pages/41fde4/" class="nav-link">工具和环境</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/of4wa5/" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/pages/9c53a1/" class="nav-link">前端框架</a></li><li class="dropdown-item"><!----> <a href="/pages/291a73/" class="nav-link">可视化</a></li><li class="dropdown-item"><!----> <a href="/pages/bbf7bd/" class="nav-link">UI设计和产品</a></li><li class="dropdown-item"><!----> <a href="/pages/0c01fa/" class="nav-link">Vue</a></li></ul></div></div> <a href="https://github.com/Ezuy-Lee/amber-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java基础篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java框架篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CVS版本控制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据库和缓存</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/70b389/" class="sidebar-link">《数据库和缓存》</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>关系型数据库</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/6b8464/" class="sidebar-link">《关系型数据库》</a></li><li><a href="/pages/f6eb91/" class="sidebar-link">MySQL设计技巧</a></li><li><a href="/pages/13cd07/" class="sidebar-link">SQL优化经验总结(oracle)</a></li><li><a href="/pages/a1780f/" class="sidebar-link">MySQL优化</a></li><li><a href="/pages/f41108/" class="sidebar-link">MySQL的锁详解</a></li><li><a href="/pages/b433f4/" aria-current="page" class="active sidebar-link">MySql Binlog初识</a></li><li><a href="/pages/90ceaf/" class="sidebar-link">MySql Binlog事件介绍篇</a></li><li><a href="/pages/1bc399/" class="sidebar-link">MySql Binlog事件数据篇</a></li><li><a href="/pages/60ba55/" class="sidebar-link">Mysql锁机制分析</a></li><li><a href="/pages/9f82d6/" class="sidebar-link">Mysql通讯协议分析</a></li><li><a href="/pages/657f22/" class="sidebar-link">10基于Netty模拟解析Binlog</a></li><li><a href="/pages/fbec2f/" class="sidebar-link">如何快速安全的插入千万条数据</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>NoSQL数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>更多数据库</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式和架构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>容器化和中间件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux运维和测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>大数据和云计算</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具和环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-1baff76c><div class="articleInfo" data-v-1baff76c><ul class="breadcrumbs" data-v-1baff76c><li data-v-1baff76c><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-1baff76c></a></li> <li data-v-1baff76c><a href="/back_end/#后端" data-v-1baff76c>后端</a></li><li data-v-1baff76c><a href="/back_end/#数据库和缓存" data-v-1baff76c>数据库和缓存</a></li><li data-v-1baff76c><a href="/back_end/#关系型数据库" data-v-1baff76c>关系型数据库</a></li></ul> <div class="info" data-v-1baff76c><div title="作者" class="author iconfont icon-touxiang" data-v-1baff76c><a href="https://github.com/Ezuy-Lee" target="_blank" title="作者" class="beLink" data-v-1baff76c>Amber.L</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-1baff76c><a href="javascript:;" data-v-1baff76c>2021-06-24</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><!----> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">MySql Binlog初识<!----></h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p><strong>Mysql日志</strong><br>
+MySQL 的日志包括错误日志（ErrorLog），更新日志（Update Log），二进制日志（Binlog），查询日志（Query Log），慢查询日志（Slow Query Log）等；<br>
+更新日志是老版本的MySQL 才有的，目前已经被二进制日志替代；在默认情况下，系统仅仅打开错误日志，关闭了其他所有日志，以达到尽可能减少IO损耗提高系统，<br>
+性能的目的，但是在一般稍微重要一点的实际应用场景中，都至少需要打开二进制日志，因为这是MySQL很多存储引擎进行增量备份的基础，也是MySQL实现复制的基本条件；<br>
+下面介绍的就是二进制日志–Binlog</p> <p><strong>Binlog开启</strong><br>
+默认Binlog是关闭的，首先要开启才能记录日志；<br>
+1.查看是否开启log_bin</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show variables like 'log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | OFF   |
++---------------+-------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>2.开启log_bin<br>
+在my.ini中添加配置：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>log_bin=D:/mysql/bin-log.log
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>3.重启mysql，再次查看</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show variables like 'log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | ON    |
++---------------+-------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>4.查看Binlog<br>
+4.1显示binlog的名称和大小</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show binary logs;
++----------------+-----------+
+| Log_name       | File_size |
++----------------+-----------+
+| bin-log.000001 |       107 |
++----------------+-----------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>4.2查看生成的binlog<br>
+想用查看到binlog可以往数据库中更新数据库(包括：插入，更新和删除操作)，查询sql是无法生成binlog的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show binlog events;
++----------------+------+-------------+-----------+-------------+---------------
+------------------------------------------------+
+| Log_name       | Pos  | Event_type  | Server_id | End_log_pos | Info
+                                                |
++----------------+------+-------------+-----------+-------------+---------------
+------------------------------------------------+
+| bin-log.000001 |    4 | Format_desc |         1 |         107 | Server ver: 5.
+5.29-log, Binlog ver: 4                         |
+| bin-log.000001 |  107 | Query       |         1 |         175 | BEGIN
+                                                |
+| bin-log.000001 |  175 | Intvar      |         1 |         203 | INSERT_ID=9
+                                                |
+| bin-log.000001 |  203 | Query       |         1 |         315 | use `test`; in
+sert into user (age,name) values(100,&quot;zhaohui&quot;) |
+| bin-log.000001 |  315 | Xid         |         1 |         342 | COMMIT /* xid=
+41 */                                           |
++----------------+------+-------------+-----------+-------------+---------------
+------------------------------------------------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p><strong>Binlog相关参数</strong><br>
+通过执行如下命令可以获得关于Binlog 的相关参数：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show variables like '%binlog%';
++-----------------------------------------+----------------------+
+| Variable_name                           | Value                |
++-----------------------------------------+----------------------+
+| binlog_cache_size                       | 32768                |
+| binlog_direct_non_transactional_updates | OFF                  |
+| binlog_format                           | STATEMENT            |
+| binlog_stmt_cache_size                  | 32768                |
+| innodb_locks_unsafe_for_binlog          | OFF                  |
+| max_binlog_cache_size                   | 18446744073709547520 |
+| max_binlog_size                         | 1073741824           |
+| max_binlog_stmt_cache_size              | 18446744073709547520 |
+| sync_binlog                             | 0                    |
++-----------------------------------------+----------------------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>1.binlog_cache_size<br>
+在事务过程中容纳binlog SQL语句的缓存大小；binlog缓存是服务器支持事务存储引擎并且服务器启用了二进制日志(—log-bin选项)的前提下为每个Session分配的内存；<br>
+主要是用来提高binlog的写速度；可以通过MySQL的以下个状态变量来判断当前的binlog_cache_size的状况：Binlog_cache_use和Binlog_cache_disk_use</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show status like 'Binlog_cache%';
++-----------------------+-------+
+| Variable_name         | Value |
++-----------------------+-------+
+| Binlog_cache_disk_use | 0     |
+| Binlog_cache_use      | 4     |
++-----------------------+-------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>Binlog_cache_use：使用缓冲区存放binlog的次数<br>
+Binlog_cache_disk_use：使用临时文件存放binlog的次数</p> <p>2.binlog_stmt_cache_size<br>
+发生事务时非事务语句的缓存的大小，可以通过MySQL 的以下个状态变量来判断当前的binlog_stmt_cache_size的状况：Binlog_stmt_cache_use和Binlog_stmt_cache_disk_use</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql&gt; show status like 'binlog_stmt_cache%';
++----------------------------+-------+
+| Variable_name              | Value |
++----------------------------+-------+
+| Binlog_stmt_cache_disk_use | 0     |
+| Binlog_stmt_cache_use      | 1     |
++----------------------------+-------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>Binlog_stmt_cache_use：缓冲区存放binlog的次数<br>
+Binlog_stmt_cache_disk_use：临时文件存放binlog的次数</p> <p>3.max_binlog_cache_size<br>
+和binlog_cache_size相对应，但是所代表的是binlog能够使用的最大cache内存大小；binlog_cache_size对应的每个Session，max_binlog_cache_size对应所有Session；<br>
+当我们执行多语句事务的时候，所有Session的使用的内存超过max_binlog_cache_size的值时，系统可能会报出”Multi-statement transaction required more than ‘max_binlog_cache_size’ bytes of storage”的错误。</p> <p>4.max_binlog_stmt_cache_size<br>
+同max_binlog_cache_size类似，非事务语句binlog能够使用的最大cache内存大小。</p> <p>5.max_binlog_size<br>
+Binlog日志最大值，默认1G，。该大小并不能非常严格控制Binlog大小，尤其是当到达Binlog比较靠近尾部而又遇到一个较大事务的时候，系统为了保证事务的完整性，不可能做切换日志的动作，只能将该事务的所有SQL都记录进入当前日志，直到该事务结束。</p> <p>6.sync_binlog<br>
+同步binlog缓存中数据到磁盘的方式：<br>
+sync_binlog=0<br>
+当事务提交之后，MySQL不做fsync之类的磁盘同步指令刷新binlog_cache中的信息到磁盘，而让Filesystem自行决定什么时候来做同步，或者cache满了之后才同步到磁盘；<br>
+sync_binlog=n（区间0-4294967295）<br>
+当每进行n次事务提交之后，MySQL将进行一次fsync之类的磁盘同步指令来将binlog_cache中的数据强制写入磁盘；</p> <p>系统默认设置为0，这种情况下性能最好，风险最大，可能导致binlog_cache中的数据丢失；sync_binlog=1性能最差，风险最小。</p> <p>7.binlog_format<br>
+设置binlog的格式，可选值：STATEMENT, ROW, or MIXED；默认是：STATEMENT<br>
+7.1 ROW模式<br>
+日志中记录成每一行数据被修改的形式，然后在slave端再对相同的数据进行修改；<br>
+在ROW模式下bin-log中可以不记录执行的SQL语句的上下文相关的信息，只需要记录哪条数据被修改成什么样了，不会因为某些语法复制出现问题（比如function，trigger等）；<br>
+缺点是每行数据的修改都会记录，最明显的就是update语句，导致更新多少条数据就会产生多少事件，使bin-log文件很大，而复制要网络传输，影响性能。</p> <p>7.2 STATEMENT模式<br>
+每一条修改数据的sql都会被记录到bin-log中，slave端再根据sql语句重现，解决了ROW模式的缺点，不会产生大量是bin-log数据；<br>
+缺点是为了让sql能在slave端正确重现，需要记录sql在执行的上下文信息，另外一个问题就是在复制某些特殊的函数或者功能的时候会出现问题，比如sleep()函数。</p> <p>7.3 MIXED模式<br>
+前面两种模式的结合，根据不同的情况分别使用ROW模式和STATEMENT模式。</p> <p>更多参数详见：<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>Binlog结构和内容</strong><br>
+日志由一组二进制日志文件（Binlog）,加上一个索引文件（index）；Binlog是一个二进制文件集合，每个Binlog以一个4字节的魔数开头，接着是一组Events；<br>
+1.魔数：0xfe62696e对应的是0xfebin；<br>
+2.Event：每个Event包含header和data两个部分；header提供了Event的创建时间，哪个服务器等信息，data部分提供的是针对该Event的具体信息，如具体数据的修改；<br>
+3.第一个Event用于描述binlog文件的格式版本，这个格式就是event写入binlog文件的格式；<br>
+4.其余的Event按照第一个Event的格式版本写入；<br>
+5.最后一个Event用于说明下一个binlog文件；<br>
+6.Binlog的索引文件是一个文本文件，其中内容为当前的binlog文件列表，比如：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>D:\mysql\bin-log.000001
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>参考：<a href="https://dev.mysql.com/doc/internals/en/binary-log-structure-and-contents.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/binary-log-structure-and-contents.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>Binlog的Event类型</strong><br>
+官方提供的可能Event类型有36种，具体看下面的枚举：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>enum Log_event_type { 
+  UNKNOWN_EVENT= 0, 
+  START_EVENT_V3= 1, 
+  QUERY_EVENT= 2, 
+  STOP_EVENT= 3, 
+  ROTATE_EVENT= 4, 
+  INTVAR_EVENT= 5, 
+  LOAD_EVENT= 6, 
+  SLAVE_EVENT= 7, 
+  CREATE_FILE_EVENT= 8, 
+  APPEND_BLOCK_EVENT= 9, 
+  EXEC_LOAD_EVENT= 10, 
+  DELETE_FILE_EVENT= 11, 
+  NEW_LOAD_EVENT= 12, 
+  RAND_EVENT= 13, 
+  USER_VAR_EVENT= 14, 
+  FORMAT_DESCRIPTION_EVENT= 15, 
+  XID_EVENT= 16, 
+  BEGIN_LOAD_QUERY_EVENT= 17, 
+  EXECUTE_LOAD_QUERY_EVENT= 18, 
+  TABLE_MAP_EVENT = 19, 
+  PRE_GA_WRITE_ROWS_EVENT = 20, 
+  PRE_GA_UPDATE_ROWS_EVENT = 21, 
+  PRE_GA_DELETE_ROWS_EVENT = 22, 
+  WRITE_ROWS_EVENT = 23, 
+  UPDATE_ROWS_EVENT = 24, 
+  DELETE_ROWS_EVENT = 25, 
+  INCIDENT_EVENT= 26, 
+  HEARTBEAT_LOG_EVENT= 27, 
+  IGNORABLE_LOG_EVENT= 28,
+  ROWS_QUERY_LOG_EVENT= 29,
+  WRITE_ROWS_EVENT = 30,
+  UPDATE_ROWS_EVENT = 31,
+  DELETE_ROWS_EVENT = 32,
+  GTID_LOG_EVENT= 33,
+  ANONYMOUS_GTID_LOG_EVENT= 34,
+  PREVIOUS_GTIDS_LOG_EVENT= 35, 
+  ENUM_END_EVENT 
+  /* end marker */
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><p>参考：<a href="https://dev.mysql.com/doc/internals/en/event-classes-and-types.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/event-classes-and-types.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Event结构官网提供了3个版本，分别是v1，v3，v4：<br>
+v1：用在MySQL 3.23<br>
+v3：用在MySQL 4.0.2-4.1<br>
+v4：用在MySQL 5.0之后</p> <p>现在MySQL的版本基本都使用5.0之后的版本，可以直接看v4，具体如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>+=====================================+
+| event  | timestamp         0 : 4    |
+| header +----------------------------+
+|        | type_code         4 : 1    |
+|        +----------------------------+
+|        | server_id         5 : 4    |
+|        +----------------------------+
+|        | event_length      9 : 4    |
+|        +----------------------------+
+|        | next_position    13 : 4    |
+|        +----------------------------+
+|        | flags            17 : 2    |
+|        +----------------------------+
+|        | extra_headers    19 : x-19 |
++=====================================+
+| event  | fixed part        x : y    |
+| data   +----------------------------+
+|        | variable part              |
++=====================================+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>名字后面的两个数字表示：offset : length即从第几个字节开始，后面多少个字节用来存放数据<br>
+比如：timestamp(0 : 4)表示从第0个字节开始，往后四个字节用来存放timestamp<br>
+目前来说x=19，所有extra_headers是空的，y是fixed part的长度，不同的Event长度不一样。</p> <p>参考：<a href="https://dev.mysql.com/doc/internals/en/event-structure.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/event-structure.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>Event简要分析</strong><br>
+1.从一个最简单的实例来分析其中的Event，包括创建表，插入数据，更新数据，删除数据；binlog_format使用的是默认的STATEMENT；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>CREATE TABLE `btest` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `age` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+ 
+insert into btest values(1,100,'zhaohui');
+update btest set name='zhaohui_new' where id=1;
+delete from btest where id=1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>2.查看所有的Events</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>show binlog events;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="https://static.oschina.net/uploads/space/2017/1110/153425_V7Y6_159239.jpg" alt=""></p> <p>上图中一共出现了3中类型的Event，分别是Format_desc，Query和Xid，下面进行简单的分析</p> <p>2.1Format_desc_Event<br>
+官网格式如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>+=====================================+
+| event  | timestamp         0 : 4    |
+| header +----------------------------+
+|        | type_code         4 : 1    | = FORMAT_DESCRIPTION_EVENT = 15
+|        +----------------------------+
+|        | server_id         5 : 4    |
+|        +----------------------------+
+|        | event_length      9 : 4    | &gt;= 91
+|        +----------------------------+
+|        | next_position    13 : 4    |
+|        +----------------------------+
+|        | flags            17 : 2    |
++=====================================+
+| event  | binlog_version   19 : 2    | = 4
+| data   +----------------------------+
+|        | server_version   21 : 50   |
+|        +----------------------------+
+|        | create_timestamp 71 : 4    |
+|        +----------------------------+
+|        | header_length    75 : 1    |
+|        +----------------------------+
+|        | post-header      76 : n    | = array of n bytes, one byte per event
+|        | lengths for all            |   type that the server knows about
+|        | event types                |
++=====================================+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>使用十六进制方式打开文件bin-log.000001，以下是Format_desc_Event的十六进制代码：<br> <img src="https://static.oschina.net/uploads/space/2017/1110/153502_9nep_159239.jpg" alt=""></p> <p>可以先看前面的4+103=107个字节，4字节是binlog的魔数，103字节是Format_desc_Event，其中有19字节是header；<br>
+注:Binlog日志是小端字节顺序<br>
+0x5A0504AA四个字节是timestamp；0x0F一个字节表示type_code；0x00000001四个字节为server_id；0x00000067四个字节是event_length，对应的十进制就是103；<br>
+0x0000006b四个字节是next_position，即下一个Event的开始位置为107；ox0001两个字节是flags；header总计19字节。<br>
+data总字节数=103-19即84字节，排除掉前面的57个字节，剩余27字节表示post-header lengths for all event types；<br>
+post-header lengths：从START_EVENT_V3开始到第27个Event，每个Event的fixed part lengths；<br>
+Format_desc_Event位置是15，可以在图中找到15的位置是0x54，对应十进制是84，即fixed part lengths=84，而这个值刚好是57+27=84，所以Format_desc_Event不存在variable part；</p> <p>参考：<a href="https://dev.mysql.com/doc/internals/en/binary-log-versions.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/binary-log-versions.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>2.2Query_Event</p> <p>以下的create table产生的Query_Event的十六进制代码：<br> <img src="https://static.oschina.net/uploads/space/2017/1110/153525_FY8f_159239.png" alt=""></p> <p>header共19字节，0x02一个字节表示type_code（Query_Event=2）;0x00000101四个字节是event_length，对应的十进制就是257（pos=107，End_log_pos=364）;<br>
+Query_Event在post-header的第二个位置0x0d，所有fix part lengths=13；<br>
+variable part=257-19-13=225字节<br>
+具体fix data和variable data：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>+==============================================================+
+| fix    | The ID of the thread                      19 : 4    | 
+| data   +-----------------------------------------------------+
+|        | The time in seconds                       23 : 4    |
+|        +-----------------------------------------------------+
+|        | The length of the name of the database    27 : 1    |
+|        +-----------------------------------------------------+
+|        | The error code                            28 : 2    |
+|        +-----------------------------------------------------+
+|        | The length of the status variable block   30 : 2    | 
++==============================================================+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>在创建表产生一个Query_Event，insert、update以及delete执行之后分别产生了2个Query_Event和一个Xid_Event。</p> <p>更多详细：<a href="https://dev.mysql.com/doc/internals/en/event-data-for-specific-event-types.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/event-data-for-specific-event-types.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>2.3Xid_Event</p> <p>以下的更新数据产生的Xid_Event的十六进制代码：</p> <p><img src="https://static.oschina.net/uploads/space/2017/1110/153556_EYkZ_159239.jpg" alt=""></p> <p>header共19字节，0x10一个字节表示type_code（XID_EVENT=16）;0x0000001b四个字节是event_length，对应的十进制就是27（pos=536，End_log_pos=563）;<br>
+2Xid_Event在post-header的第十六个位置0x00，所有fix part lengths=0；<br>
+variable part=27-19=8字节<br>
+8字节：The XID transaction number。</p> <p>insert、update以及delete执行之后分别产生了Xid_Event，事务提交产生的事件。</p> <p>更多详细：<a href="https://dev.mysql.com/doc/internals/en/event-data-for-specific-event-types.html" target="_blank" rel="noopener noreferrer">https://dev.mysql.com/doc/internals/en/event-data-for-specific-event-types.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>总结</strong><br>
+本文主要对Mysql Binlog做了一个大体的介绍，包括：Binlog的参数，格式以及最重要的事件；事件数量比较多，从最简单的增删改查入手，介绍了几个比较常见的事件；<br>
+后续会继续学习其他事件，对Binlog有更加详细的了解。</p></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Ezuy-Lee/amber-blog/edit/master/docs/01.后端/04.数据库和缓存/01.关系型数据库/05.MySql Binlog初识.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/28, 20:39:47</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/f41108/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">MySQL的锁详解</div></a> <a href="/pages/90ceaf/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">MySql Binlog事件介绍篇</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/f41108/" class="prev">MySQL的锁详解</a></span> <span class="next"><a href="/pages/90ceaf/">MySql Binlog事件介绍篇</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/17a3aa/"><div>
+            Kubernetes Pod操作篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/72dcb3/"><div>
+            Kubernetes 副本机制篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/aa41a0/"><div>
+            Kubernetes服务篇
+            <!----></div></a> <span class="date">06-27</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:619147075@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/Ezuy-Lee/" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/playlist?id=966099149" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2020-2022
+    <span>Amber.L | <a href="https://github.com/Ezuy-Lee/Rainze-Blog/blob/main/LICENSE" target="_blank">MIT License</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><span class="close-but">×</span> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.aa05047d.js" defer></script><script src="/assets/js/2.5a29c738.js" defer></script><script src="/assets/js/46.9ca00db5.js" defer></script>
+  </body>
+</html>
